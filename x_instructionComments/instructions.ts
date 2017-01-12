@@ -243,5 +243,6 @@ git push -u origin master
 ******************************************************************************************************************************
 
 todo - less
+todo - component-based architecture example, two way binding, pipes
 
 */

@@ -50703,15 +50703,27 @@
 	var navigationBar_component_1 = __webpack_require__(57);
 	var showHide_component_1 = __webpack_require__(58);
 	var wadup_component_1 = __webpack_require__(59);
-	var appRoutes = [{ path: "showHide", component: showHide_component_1.default }, { path: "wadup", component: wadup_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
+	var interpolation_component_1 = __webpack_require__(60);
+	var propertyBinding_component_1 = __webpack_require__(61);
+	var eventBinding_component_1 = __webpack_require__(62);
+	// routing configuration
+	var appRoutes = [{ path: "showHide", component: showHide_component_1.default }, { path: "wadup", component: wadup_component_1.default }, { path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
 	var AppModule = function AppModule() {
 	    _classCallCheck(this, AppModule);
 	};
 	AppModule = __decorate([core_1.NgModule({
-	    imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes)],
-	    providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
-	    //need to add every component to our declarations
-	    declarations: [app_component_1.default, navigationBar_component_1.default, showHide_component_1.default, wadup_component_1.default],
+	    // Imports are angular modules 
+	    imports: [
+	    // 
+	    platform_browser_1.BrowserModule,
+	    // used for routing
+	    router_1.RouterModule.forRoot(appRoutes)],
+	    providers: [{
+	        provide: common_1.LocationStrategy,
+	        useClass: common_1.HashLocationStrategy
+	    }],
+	    // need to add every component to our declarations
+	    declarations: [app_component_1.default, navigationBar_component_1.default, showHide_component_1.default, wadup_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default],
 	    // our bootstrap is AppComponent
 	    bootstrap: [app_component_1.default]
 	})], AppModule);
@@ -58826,6 +58838,126 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = WadupComponent;
 	//# sourceMappingURL=wadup.component.js.map
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    var c = arguments.length,
+	        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+	        d;
+	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var core_1 = __webpack_require__(3);
+	var InterpolationComponent = function InterpolationComponent() {
+	    _classCallCheck(this, InterpolationComponent);
+
+	    this.interpolationString = "This is my Interpolation String";
+	};
+	InterpolationComponent = __decorate([core_1.Component({
+	    selector: "my-interpolation",
+	    templateUrl: "../../app/interpolation/interpolation.html"
+	})], InterpolationComponent);
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = InterpolationComponent;
+	//# sourceMappingURL=interpolation.component.js.map
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    var c = arguments.length,
+	        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+	        d;
+	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var core_1 = __webpack_require__(3);
+	var PropertyBindingComponent = function PropertyBindingComponent() {
+	    _classCallCheck(this, PropertyBindingComponent);
+
+	    this.imageWidth = 300;
+	    this.imageMargin = 20;
+	    this.images = [{
+	        "imageUrl": "http://s0.geograph.org.uk/geophotos/01/98/31/1983152_0a7b3fd7.jpg",
+	        "imageTitle": "Ham Sandwich Sign Post in Kent"
+	    }, {
+	        "imageUrl": "http://funnyasduck.net/wp-content/uploads/2012/11/funny-angry-kid-bitch-stole-fish-girl-pics.jpg",
+	        "imageTitle": "Bitch Stole My Fish"
+	    }, {
+	        "imageUrl": "https://s-media-cache-ak0.pinimg.com/736x/f7/08/1e/f7081eb41b1b584aa1eae8be843725e5.jpg",
+	        "imageTitle": "Daddy"
+	    }];
+	};
+	PropertyBindingComponent = __decorate([core_1.Component({
+	    selector: "my-property-binding.",
+	    templateUrl: "../../app/propertyBinding/propertyBinding.html"
+	})], PropertyBindingComponent);
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = PropertyBindingComponent;
+	//# sourceMappingURL=propertyBinding.component.js.map
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    var c = arguments.length,
+	        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+	        d;
+	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var core_1 = __webpack_require__(3);
+	var EventBindingComponent = function () {
+	    function EventBindingComponent() {
+	        _classCallCheck(this, EventBindingComponent);
+
+	        this.showLabel = false;
+	    }
+
+	    _createClass(EventBindingComponent, [{
+	        key: "toggleLabel",
+	        value: function toggleLabel() {
+	            this.showLabel = !this.showLabel;
+	        }
+	    }]);
+
+	    return EventBindingComponent;
+	}();
+	EventBindingComponent = __decorate([core_1.Component({
+	    selector: "my-event-binding",
+	    templateUrl: "../../app/eventBinding/eventBinding.html"
+	})], EventBindingComponent);
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = EventBindingComponent;
+	//# sourceMappingURL=eventBinding.component.js.map
 
 /***/ }
 /******/ ]);
