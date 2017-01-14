@@ -64667,10 +64667,7 @@
 	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
-	// Import
-	// importing Component from core
 	var core_1 = __webpack_require__(3);
-	// Decorator
 	var AppComponent = function AppComponent() {
 	    _classCallCheck(this, AppComponent);
 	};

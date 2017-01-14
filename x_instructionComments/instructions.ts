@@ -87,16 +87,19 @@ package.json - scripts:
         postbuild
             npm run bundle
                 - uses the webpack.config.js file for the config settings
-                - uses ./app/main.js file as an entry point. 
+                - uses ./js/main.js file as an entry point. 
                 - Note this is your bootstrap that contains all the modules in angular
-                - because .app/main.js file has many dependencies it bundles these altogether 
+                - because .js/main.js file has many dependencies it bundles these altogether 
                 - dependencies include the es5 js files which have been transpiled: (ts to js, jsES6 to jsES5) and stored in the ./build
-                - this means all dependencies for the .app/main.js file and the main.js file itself are bundled into one clean file
+                - this means all dependencies for the .js/main.js file and the main.js file itself are bundled into one clean file
                 - it spits the file into the output: path: ./dist, file: [name]-bundle.js
-                - the html-loader and html-webpack-plugin (dev dependencies) are configured in the webpack.config.js which bundles the Angular Templates (html)
+                - the Loaders are configured in the webpack.config.js
+                    - the html-loader ensures webpack can read and bundle any HTML file (which helps bundle the Angular Templates)
+                    - the babel-loader ensures webpack can read and bundle any ES2015 javascript file (js)
    
             npm run uglifyjs
-                - note to make it easier, we have a preminify and a minify script. These do the same thing for different files that need to be minified.
+                - note to make it easier, we have a preminify and a minify script. 
+                - These do the same thing for different files that need to be minified.
                 - minifies the two bundled files in the ./dist folder, main-bundle.js and vendor-bundle.js
                 - uses the -m (mangle) and -c (compress)
                 - finally -o outputs it to creates a new min.js file
@@ -106,6 +109,8 @@ package.json - scripts:
         which will use those js files to run the code. Note the vendor must be loaded first as html has a top down loading style.
         Also note these js files are below the my-app directive
         vendor-min has all the dependencies, hence the main-min needs these dependencies to run.
+        <base href="/"> is used by the Angular RouterModule and RouterModule
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> is needed for Twitter Bootstrap
         This script uses the http-server (installed by npm) and specifies the url is localhost:3000
 
 
@@ -153,12 +158,13 @@ typescript:
         This then specifies where to put the output of these bundle.js files - ./dist/[name]-bundle.js (eg app-bundle.js or vendor-bundle.js)
         Specifies the two loaders:
             1 babel module loader:
+                the babel-loader ensures webpack can read and bundle any ES2015 javascript file (js)
                 the presets is very important for the babel to work. without this, we would have to have a require statement in our entry point:
                 require('babel-register')({ "presets": ["es2015"]}); and have a npm install babel-register --save-dev
             2 the html-loader:
-                the html-loader and html-webpack-plugin (dev dependencies) assist with bundling the Angular Templates within the [name]-bundle.js.
+                the html-loader ensures webpack can read and bundle any HTML file (which helps bundle the Angular Templates)
+                the html-webpack-plugin (dev dependencies in package.json) assist with bundling the within the [name]-bundle.js.
                 In other words all components have a template (html). 
-                This html-loader adds the html into the bundles, because only a babel loader is specified which handles js files.
 
 
     .bowerrc
@@ -184,8 +190,34 @@ typescript:
             2 It adds the definition to the typings/globals - including another index.d.ts and typings.json file in this folder.
 
 
+    app.component.ts
+        AppComponent specifies the selector which is referenced in the index.html
+        The Template then can have any directives it wants which will be put ontop of each other.
+        The only mandatory one is <router-outlet> which is just an Angular name for the SPA.
+        In this case, we have added a navigationBar directive above it.
+        This means every page within the app will have the navbar with the component selected
+        navigationBar.html has on important line: <a routerLink="/path" routerLinkActive="active">
+        note the path is specified in the app.module.ts which is broken below.
 
 
+    app.module.ts
+        Every Angular Module must have @NgModule which specifies what the Module contains.
+        Imports:
+            As this is the Module for the whole application, this will only ever get bigger.
+            In @NgModule, we have:
+                imports -      imports all modules (Angular and bespoke) (example of bespoke is showHideModule)
+                providers -    imports all services
+                declarations - imports all components
+        Routing:
+            An array is created to hold all the paths. The path is specified for the user to enter and is linked to a component.
+            Paths Array is then passed into RouterModule()
+            Routing can be created in the other modules, because this module imports all other modules in the imports
+            NavigationBar.component.ts
+        Bootstrapping:
+            This tells Angular that app.component.ts is the main component.
+            This app.module.ts file is then passed into the main.ts to complete the bootstrapping
+        
+        
 ******************************************************************************************************************************
 HOW IT WORKS
 ******************************************************************************************************************************

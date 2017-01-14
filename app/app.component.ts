@@ -1,8 +1,5 @@
-// Import
-// importing Component from core
-import {Component} from "@angular/core"; 
+import { Component } from "@angular/core"; 
 
-// Decorator
 @Component({
     // the element defined in the index.html
     selector: "my-app",
@@ -15,7 +12,5 @@ import {Component} from "@angular/core";
     <router-outlet></router-outlet>`   
 })
 
-// Class
-// we need to export the class AppComponent. 
 export default class AppComponent {
 } 
