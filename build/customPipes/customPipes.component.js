@@ -16,7 +16,7 @@ var core_1 = require("@angular/core");
 var CustomPipesComponent = function CustomPipesComponent() {
     _classCallCheck(this, CustomPipesComponent);
 
-    this.listFilter = "am";
+    this.listFilter = "cart";
     this.productList = [{
         "productId": 1,
         "productName": "Garden Cart",

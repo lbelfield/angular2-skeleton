@@ -50710,9 +50710,9 @@
 	var twoWayBinding_component_1 = __webpack_require__(66);
 	var pipes_component_1 = __webpack_require__(67);
 	var customPipes_component_1 = __webpack_require__(68);
-	var customFilter_pipe_1 = __webpack_require__(69);
+	var productFilterCustomPipe_pipe_1 = __webpack_require__(69);
 	// routing configuration
-	var appRoutes = [{ path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
+	var appRoutes = [{ path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: "", redirectTo: "/showHide", pathMatch: "full" }];
 	var AppModule = function AppModule() {
 	    _classCallCheck(this, AppModule);
 	};
@@ -50732,8 +50732,8 @@
 	        provide: common_1.LocationStrategy,
 	        useClass: common_1.HashLocationStrategy
 	    }],
-	    // Used For Components (both Angular and bespoke)
-	    declarations: [app_component_1.default, navigationBar_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, customFilter_pipe_1.default],
+	    // Used For Components (and Custom Pipes) (both Angular and bespoke)
+	    declarations: [app_component_1.default, navigationBar_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, productFilterCustomPipe_pipe_1.default],
 	    // our bootstrap is AppComponent
 	    bootstrap: [app_component_1.default]
 	})], AppModule);
@@ -64524,7 +64524,6 @@
 	var core_1 = __webpack_require__(3);
 	var platform_browser_1 = __webpack_require__(21);
 	var router_1 = __webpack_require__(28);
-	//import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 	var parent_component_1 = __webpack_require__(59);
 	var child_component_1 = __webpack_require__(60);
 	var appRoutes = [{ path: "showHide", component: parent_component_1.default }];
@@ -64532,8 +64531,8 @@
 	    _classCallCheck(this, ShowHideModule);
 	};
 	ShowHideModule = __decorate([core_1.NgModule({
+	    // Imports = Modules. BrowserModule needed for ngIf. RouterModule needed for routing
 	    imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes)],
-	    //providers: [{provide: LocationStrategy, useClass : HashLocationStrategy}],
 	    declarations: [parent_component_1.default, child_component_1.default]
 	})], ShowHideModule);
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -64919,7 +64918,7 @@
 	var CustomPipesComponent = function CustomPipesComponent() {
 	    _classCallCheck(this, CustomPipesComponent);
 
-	    this.listFilter = "am";
+	    this.listFilter = "cart";
 	    this.productList = [{
 	        "productId": 1,
 	        "productName": "Garden Cart",
@@ -64966,6 +64965,9 @@
 	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
 	var core_1 = __webpack_require__(3);
+	//PipeTransform is the Base Class for Pipes. If inheriting, you must implement transform() method
+	//Pipe is the Decorator to show Angular we are creating a Pipe (rather than a component, service etc)
+	// Pipe Decorator. In the HTML, we will reference this to use the Pipe.
 	var ProductFilterCustomPipe = function () {
 	    function ProductFilterCustomPipe() {
 	        _classCallCheck(this, ProductFilterCustomPipe);
@@ -64990,7 +64992,7 @@
 	})], ProductFilterCustomPipe);
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = ProductFilterCustomPipe;
-	//# sourceMappingURL=customFilter.pipe.js.map
+	//# sourceMappingURL=productFilterCustomPipe.pipe.js.map
 
 /***/ }
 /******/ ]);

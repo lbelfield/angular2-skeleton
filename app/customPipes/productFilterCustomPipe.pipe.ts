@@ -1,6 +1,10 @@
 import { PipeTransform, Pipe } from "@angular/core";
 import { IProduct } from "./IProduct";
 
+//PipeTransform is the Base Class for Pipes. If inheriting, you must implement transform() method
+//Pipe is the Decorator to show Angular we are creating a Pipe (rather than a component, service etc)
+
+// Pipe Decorator. In the HTML, we will reference this to use the Pipe.
 @Pipe({
     name: "productFilterCustomPipe"
 })

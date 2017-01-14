@@ -15,6 +15,9 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
     }return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+//PipeTransform is the Base Class for Pipes. If inheriting, you must implement transform() method
+//Pipe is the Decorator to show Angular we are creating a Pipe (rather than a component, service etc)
+// Pipe Decorator. In the HTML, we will reference this to use the Pipe.
 var ProductFilterCustomPipe = function () {
     function ProductFilterCustomPipe() {
         _classCallCheck(this, ProductFilterCustomPipe);
@@ -39,4 +42,4 @@ ProductFilterCustomPipe = __decorate([core_1.Pipe({
 })], ProductFilterCustomPipe);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ProductFilterCustomPipe;
-//# sourceMappingURL=customFilter.pipe.js.map
+//# sourceMappingURL=productFilterCustomPipe.pipe.js.map

@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 const core_1 = require("@angular/core");
 let CustomPipesComponent = class CustomPipesComponent {
     constructor() {
-        this.listFilter = "am";
+        this.listFilter = "cart";
         this.productList = [
             {
                 "productId": 1,

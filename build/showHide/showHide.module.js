@@ -15,7 +15,6 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require('@angular/router');
-//import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 var parent_component_1 = require("./parent.component");
 var child_component_1 = require("./child.component");
 var appRoutes = [{ path: "showHide", component: parent_component_1.default }];
@@ -23,8 +22,8 @@ var ShowHideModule = function ShowHideModule() {
     _classCallCheck(this, ShowHideModule);
 };
 ShowHideModule = __decorate([core_1.NgModule({
+    // Imports = Modules. BrowserModule needed for ngIf. RouterModule needed for routing
     imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes)],
-    //providers: [{provide: LocationStrategy, useClass : HashLocationStrategy}],
     declarations: [parent_component_1.default, child_component_1.default]
 })], ShowHideModule);
 Object.defineProperty(exports, "__esModule", { value: true });

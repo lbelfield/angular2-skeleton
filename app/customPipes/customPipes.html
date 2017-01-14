@@ -1,8 +1,11 @@
 <div class="panel panel-primary">
     <div class="panel-heading">Product List</div>
 </div>
+
+<!--Two Way Binding. listFilter is the variable -->
 <input type="text" [(ngModel)]="listFilter" />
 <h3>Filtered by: {{listFilter}}</h3>
+
 <div class="table-responsive">
     <table class="table">
         <thead>
@@ -13,6 +16,9 @@
             </tr>
         </thead>
         <tbody>
+            <!--For each product created...-->
+            <!--Use our custom pipe in productFilterCustomPipe.component.ts, productFilterCustomPipe-->
+            <!--the filter is set by the user. This is the two way binding variable entered into the textBox-->
             <tr *ngFor="let product of productList | productFilterCustomPipe : listFilter">
                 <td>{{product.productName}}</td>
                 <td>{{product.productCode}}</td>

@@ -29,9 +29,9 @@ var eventBinding_component_1 = require("./eventBinding/eventBinding.component");
 var twoWayBinding_component_1 = require("./twoWayBinding/twoWayBinding.component");
 var pipes_component_1 = require("./pipes/pipes.component");
 var customPipes_component_1 = require("./customPipes/customPipes.component");
-var customFilter_pipe_1 = require("./customPipes/customFilter.pipe");
+var productFilterCustomPipe_pipe_1 = require("./customPipes/productFilterCustomPipe.pipe");
 // routing configuration
-var appRoutes = [{ path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
+var appRoutes = [{ path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: "", redirectTo: "/showHide", pathMatch: "full" }];
 var AppModule = function AppModule() {
     _classCallCheck(this, AppModule);
 };
@@ -51,8 +51,8 @@ AppModule = __decorate([core_1.NgModule({
         provide: common_1.LocationStrategy,
         useClass: common_1.HashLocationStrategy
     }],
-    // Used For Components (both Angular and bespoke)
-    declarations: [app_component_1.default, navigationBar_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, customFilter_pipe_1.default],
+    // Used For Components (and Custom Pipes) (both Angular and bespoke)
+    declarations: [app_component_1.default, navigationBar_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, productFilterCustomPipe_pipe_1.default],
     // our bootstrap is AppComponent
     bootstrap: [app_component_1.default]
 })], AppModule);

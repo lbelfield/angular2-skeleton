@@ -17,7 +17,7 @@ import EventBindingComponent from "./eventBinding/eventBinding.component";
 import TwoWayBindingComponent from "./twoWayBinding/twoWayBinding.component";
 import PipesComponent from "./pipes/pipes.component";
 import CustomPipesComponent from "./customPipes/customPipes.component"
-import ProductFilterCustomPipe from "./customPipes/customFilter.pipe";
+import ProductFilterCustomPipe from "./customPipes/productFilterCustomPipe.pipe";
 
 
 // routing configuration
@@ -28,7 +28,7 @@ const appRoutes: Routes = [
         {path: "twoWayBinding", component: TwoWayBindingComponent},
         {path: "pipes", component: PipesComponent}, 
         {path: "customPipes", component: CustomPipesComponent},       
-        {path: '', redirectTo: '/showHide', pathMatch: 'full'}
+        {path: "", redirectTo: "/showHide", pathMatch: "full"}
 ];
 
 @NgModule({ 
@@ -55,7 +55,7 @@ const appRoutes: Routes = [
       useClass : HashLocationStrategy 
     }],
 
-  // Used For Components (both Angular and bespoke)
+  // Used For Components (and Custom Pipes) (both Angular and bespoke)
     declarations: [ 
     AppComponent, 
     NavigationBarComponent, 
@@ -72,5 +72,5 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent] 
 })
 
-export default class AppModule{
+export default class AppModule {
 }; 

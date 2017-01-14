@@ -22,7 +22,7 @@ const eventBinding_component_1 = require("./eventBinding/eventBinding.component"
 const twoWayBinding_component_1 = require("./twoWayBinding/twoWayBinding.component");
 const pipes_component_1 = require("./pipes/pipes.component");
 const customPipes_component_1 = require("./customPipes/customPipes.component");
-const customFilter_pipe_1 = require("./customPipes/customFilter.pipe");
+const productFilterCustomPipe_pipe_1 = require("./customPipes/productFilterCustomPipe.pipe");
 // routing configuration
 const appRoutes = [
     { path: "interpolation", component: interpolation_component_1.default },
@@ -31,7 +31,7 @@ const appRoutes = [
     { path: "twoWayBinding", component: twoWayBinding_component_1.default },
     { path: "pipes", component: pipes_component_1.default },
     { path: "customPipes", component: customPipes_component_1.default },
-    { path: '', redirectTo: '/showHide', pathMatch: 'full' }
+    { path: "", redirectTo: "/showHide", pathMatch: "full" }
 ];
 let AppModule = class AppModule {
 };
@@ -54,7 +54,7 @@ AppModule = __decorate([
                 provide: common_1.LocationStrategy,
                 useClass: common_1.HashLocationStrategy
             }],
-        // Used For Components (both Angular and bespoke)
+        // Used For Components (and Custom Pipes) (both Angular and bespoke)
         declarations: [
             app_component_1.default,
             navigationBar_component_1.default,
@@ -64,7 +64,7 @@ AppModule = __decorate([
             twoWayBinding_component_1.default,
             pipes_component_1.default,
             customPipes_component_1.default,
-            customFilter_pipe_1.default
+            productFilterCustomPipe_pipe_1.default
         ],
         // our bootstrap is AppComponent
         bootstrap: [app_component_1.default]

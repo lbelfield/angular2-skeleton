@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {IProduct} from "./IProduct";
-import ProductFilterCustomPipe from "./customFilter.pipe";
+import ProductFilterCustomPipe from "./productFilterCustomPipe.pipe";
 
 @Component({
     selector: "my-custom-pipes",
@@ -9,8 +9,8 @@ import ProductFilterCustomPipe from "./customFilter.pipe";
 
 export default class CustomPipesComponent {
 
-    private listFilter: string = "am";
-    private productList: IProduct[]= [
+    private listFilter: string = "cart";
+    private productList: IProduct[] = [
     {
         "productId" : 1,
         "productName" : "Garden Cart",
