@@ -20,20 +20,20 @@ var ParentComponent = function () {
         _classCallCheck(this, ParentComponent);
 
         this.childVisible = true;
-        this.childSavingIndicator = "start";
+        this.childToggleHelloWorldString = "start";
     }
 
     _createClass(ParentComponent, [{
         key: "showChild",
         value: function showChild() {
             this.childVisible = true;
-            this.childSavingIndicator = "hello";
+            this.childToggleHelloWorldString = "hello";
         }
     }, {
         key: "hideChild",
         value: function hideChild() {
             this.childVisible = false;
-            this.childSavingIndicator = "world";
+            this.childToggleHelloWorldString = "world";
         }
     }]);
 

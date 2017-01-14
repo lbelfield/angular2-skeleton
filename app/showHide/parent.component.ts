@@ -8,20 +8,20 @@ import ChildComponent from "./child.component"
 
 export default class ParentComponent {
     public childVisible: boolean;
-    public childSavingIndicator: string;
+    public childToggleHelloWorldString: string;
 
     public constructor() {
         this.childVisible = true;
-        this.childSavingIndicator = "start";
+        this.childToggleHelloWorldString = "start";
     }
 
     public showChild(): void {
         this.childVisible = true;
-        this.childSavingIndicator = "hello";
+        this.childToggleHelloWorldString = "hello";
     }
 
     public hideChild(): void {
         this.childVisible = false;
-        this.childSavingIndicator = "world";
+        this.childToggleHelloWorldString = "world";
     }
 }

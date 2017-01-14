@@ -6,13 +6,15 @@
 
 <!--The above is the parent-component template found in the templateUrl: "./showHide/parent.html"-->
 
-<!--The below is the child-component template, found in the templateUrl: "./showHide/child.html"-->
-<!--[savingIndicator] is a field in child.component.ts -->
-<!--childSavingIndicator is a field in parent.component.ts-->
 
-<!--uncomment childSavingIndicator to see string example -->
-<child-component [savingIndicator]="childSavingIndicator"></child-component>
+
+<!--The below is the child-component template, found in the templateUrl: "./showHide/child.html"-->
+<!--[toggleHelloWorldString] is a field in child.component.ts -->
+<!--childToggleHelloWorldString is a field in parent.component.ts-->
+
+<!--uncomment childToggleHelloWorldString to see string example -->
+<!--<child-component [toggleHelloWorldString]="childToggleHelloWorldString"></child-component>-->
 
 <!--uncomment childVisible to see string example -->
 <!-- uncomment visible in child.component.ts too -->
-<!--<child-component [visible]="childVisible"></child-component>-->
+<child-component [visible]="childVisible"></child-component>

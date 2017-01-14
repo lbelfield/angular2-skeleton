@@ -64593,20 +64593,20 @@
 	        _classCallCheck(this, ParentComponent);
 
 	        this.childVisible = true;
-	        this.childSavingIndicator = "start";
+	        this.childToggleHelloWorldString = "start";
 	    }
 
 	    _createClass(ParentComponent, [{
 	        key: "showChild",
 	        value: function showChild() {
 	            this.childVisible = true;
-	            this.childSavingIndicator = "hello";
+	            this.childToggleHelloWorldString = "hello";
 	        }
 	    }, {
 	        key: "hideChild",
 	        value: function hideChild() {
 	            this.childVisible = false;
-	            this.childSavingIndicator = "world";
+	            this.childToggleHelloWorldString = "world";
 	        }
 	    }]);
 
@@ -64641,8 +64641,9 @@
 	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
 	var core_1 = __webpack_require__(3);
-	//OnChanges is a LifeCycle Hook that implements ngOnChanges().
-	//SimpleChange is the type
+	//Input tells angular that this is a Child and that a parent will make use of this field
+	//OnChanges is a LifeCycle Hook that implements a method: ngOnChanges().
+	//SimpleChange is the type which monitors any changes. There are two fields: currentValue and previousValue
 	var ChildComponent = function () {
 	    function ChildComponent() {
 	        _classCallCheck(this, ChildComponent);
@@ -64651,20 +64652,22 @@
 	    _createClass(ChildComponent, [{
 	        key: "ngOnChanges",
 
-	        // ngOnChanges is a LifeCycle Hook
+	        ////comment out for toggleHelloWorldString
+	        //@Input() toggleHelloWorldString: string;
 	        value: function ngOnChanges(changes) {
 	            console.log(changes);
-	            console.log(typeof changes === "undefined" ? "undefined" : _typeof(changes));
-	            //console.log(changes.visible.currentValue);
-	            //this.savingIndicator = changes.visible.currentValue;
-	            console.log(changes.savingIndicator.currentValue);
-	            this.savingIndicator = changes.savingIndicator.currentValue;
+	            //propName will be either visible or toggleHelloWorldString depending on which is commented out
+	            for (var propName in changes) {
+	                var changedProp = changes[propName];
+	                console.log(changedProp.currentValue);
+	                this.visible = changedProp.currentValue;
+	            }
 	        }
 	    }]);
 
 	    return ChildComponent;
 	}();
-	__decorate([core_1.Input()], ChildComponent.prototype, "savingIndicator", void 0);
+	__decorate([core_1.Input()], ChildComponent.prototype, "visible", void 0);
 	ChildComponent = __decorate([core_1.Component({
 	    selector: "child-component",
 	    templateUrl: "../../app/showHide/child.html"

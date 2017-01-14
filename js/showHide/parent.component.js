@@ -9,15 +9,15 @@ const core_1 = require("@angular/core");
 let ParentComponent = class ParentComponent {
     constructor() {
         this.childVisible = true;
-        this.childSavingIndicator = "start";
+        this.childToggleHelloWorldString = "start";
     }
     showChild() {
         this.childVisible = true;
-        this.childSavingIndicator = "hello";
+        this.childToggleHelloWorldString = "hello";
     }
     hideChild() {
         this.childVisible = false;
-        this.childSavingIndicator = "world";
+        this.childToggleHelloWorldString = "world";
     }
 };
 ParentComponent = __decorate([
