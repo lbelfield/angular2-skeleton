@@ -64978,7 +64978,7 @@
 	        value: function transform(productList, filterString) {
 	            // check if the filterString passed in by the user is empty. 
 	            // If not null, convert to lowercase for a case insensitive comparison
-	            var filter = filterString[0] ? filterString[0].toLocaleLowerCase() : null;
+	            var filter = filterString ? filterString.toLocaleLowerCase() : null;
 	            return filter ? productList.filter(function (product) {
 	                return product.productName.toLocaleLowerCase().indexOf(filter) !== -1;
 	            }) : productList;

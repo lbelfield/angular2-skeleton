@@ -13,7 +13,7 @@ let ProductFilterCustomPipe = class ProductFilterCustomPipe {
     transform(productList, filterString) {
         // check if the filterString passed in by the user is empty. 
         // If not null, convert to lowercase for a case insensitive comparison
-        let filter = filterString[0] ? filterString[0].toLocaleLowerCase() : null;
+        let filter = filterString ? filterString.toLocaleLowerCase() : null;
         return filter ? productList.filter((product) => product.productName.toLocaleLowerCase().indexOf(filter) !== -1) : productList;
     }
 };

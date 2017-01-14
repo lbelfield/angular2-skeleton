@@ -11,12 +11,13 @@ import { IProduct } from "./IProduct";
 
 export default class ProductFilterCustomPipe implements PipeTransform {
 
-    public transform(productList: IProduct[], filterString: string[]): IProduct[] {
+    public transform(productList: IProduct[], filterString: string): IProduct[] {
 
         // check if the filterString passed in by the user is empty. 
         // If not null, convert to lowercase for a case insensitive comparison
-        let filter: string = filterString[0] ? filterString[0].toLocaleLowerCase() : null;
+        let filter: string = filterString ? filterString.toLocaleLowerCase() : null;
 
-        return filter ? productList.filter((product: IProduct) => product.productName.toLocaleLowerCase().indexOf(filter) !== -1) : productList
+        return filter ? productList.filter((product: IProduct) => 
+            product.productName.toLocaleLowerCase().indexOf(filter) !== -1) : productList
     }
 }
