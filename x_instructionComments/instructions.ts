@@ -46,6 +46,7 @@ npm commands:
     npm install @angular/platform-browser --save-dev
     npm install @angular/platform-browser-dynamic --save-dev
     npm install @angular/router --save-dev
+    npm install @angular/forms@2.4.1 --save-dev
 
     Note: the below dependencies get installed automatically - but check they are there...
     commonjs
@@ -243,6 +244,6 @@ git push -u origin master
 ******************************************************************************************************************************
 
 todo - less
-todo - component-based architecture example, two way binding, pipes
+todo - component-based architecture example, custom pipes
 
 */

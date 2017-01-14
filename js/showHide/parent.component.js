@@ -6,14 +6,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 const core_1 = require("@angular/core");
-let WadupComponent = class WadupComponent {
+let ParentComponent = class ParentComponent {
+    constructor() {
+        this.childVisible = true;
+        this.childSavingIndicator = "start";
+    }
+    showChild() {
+        this.childVisible = true;
+        this.childSavingIndicator = "hello";
+    }
+    hideChild() {
+        this.childVisible = false;
+        this.childSavingIndicator = "world";
+    }
 };
-WadupComponent = __decorate([
+ParentComponent = __decorate([
     core_1.Component({
-        selector: "my-wadup",
-        templateUrl: "../../app/wadup/wadup.html"
+        selector: "parent-component",
+        templateUrl: "../../app/showHide/parent.html"
     })
-], WadupComponent);
+], ParentComponent);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = WadupComponent;
-//# sourceMappingURL=wadup.component.js.map
+exports.default = ParentComponent;
+//# sourceMappingURL=parent.component.js.map

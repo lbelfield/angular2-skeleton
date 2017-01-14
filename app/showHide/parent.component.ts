@@ -1,11 +1,12 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
+import ChildComponent from "./child.component"
 
 @Component({
-    selector: "my-showHide",
-    templateUrl: "../../app/showHide/showHide.html"
+    selector: "parent-component",
+    templateUrl: "../../app/showHide/parent.html"
 })
 
-export default class ShowHideComponent {
+export default class ParentComponent {
     public childVisible: boolean;
     public childSavingIndicator: string;
 
@@ -14,13 +15,13 @@ export default class ShowHideComponent {
         this.childSavingIndicator = "start";
     }
 
-    public showChild():void {
+    public showChild(): void {
         this.childVisible = true;
         this.childSavingIndicator = "hello";
     }
 
-    public hideChild():void {
+    public hideChild(): void {
         this.childVisible = false;
         this.childSavingIndicator = "world";
     }
-} 
+}

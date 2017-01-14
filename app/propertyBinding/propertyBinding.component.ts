@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {IImages} from "./IImages";
 
 @Component({
     selector: "my-property-binding.",
@@ -10,7 +11,7 @@ export default class PropertyBindingComponent {
     private imageWidth: number = 300;
     private imageMargin: number = 20;
 
-    private images: any[] = [
+    private images: IImages[] = [
         {
             "imageUrl": "http://s0.geograph.org.uk/geophotos/01/98/31/1983152_0a7b3fd7.jpg",
             "imageTitle": "Ham Sandwich Sign Post in Kent"

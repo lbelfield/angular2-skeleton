@@ -7,24 +7,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 // necessary imports
 const core_1 = require("@angular/core");
+const forms_1 = require("@angular/forms");
 const platform_browser_1 = require("@angular/platform-browser");
 const router_1 = require('@angular/router');
 const common_1 = require('@angular/common');
 // bespoke components
 const app_component_1 = require("./app.component");
 const navigationBar_component_1 = require("./navigationBar/navigationBar.component");
-const showHide_component_1 = require("./showHide/showHide.component");
-const wadup_component_1 = require("./wadup/wadup.component");
+const parent_component_1 = require("./showHide/parent.component");
+const child_component_1 = require("./showHide/child.component");
 const interpolation_component_1 = require("./interpolation/interpolation.component");
 const propertyBinding_component_1 = require("./propertyBinding/propertyBinding.component");
 const eventBinding_component_1 = require("./eventBinding/eventBinding.component");
+const twoWayBinding_component_1 = require("./twoWayBinding/twoWayBinding.component");
+const pipes_component_1 = require("./pipes/pipes.component");
+const customPipes_component_1 = require("./customPipes/customPipes.component");
+const customFilter_pipe_1 = require("./customPipes/customFilter.pipe");
 // routing configuration
 const appRoutes = [
-    { path: "showHide", component: showHide_component_1.default },
-    { path: "wadup", component: wadup_component_1.default },
+    { path: "showHide", component: parent_component_1.default },
     { path: "interpolation", component: interpolation_component_1.default },
     { path: "propertyBinding", component: propertyBinding_component_1.default },
     { path: "eventBinding", component: eventBinding_component_1.default },
+    { path: "twoWayBinding", component: twoWayBinding_component_1.default },
+    { path: "pipes", component: pipes_component_1.default },
+    { path: "customPipes", component: customPipes_component_1.default },
     { path: '', redirectTo: '/showHide', pathMatch: 'full' }
 ];
 let AppModule = class AppModule {
@@ -37,6 +44,8 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             // used for routing
             router_1.RouterModule.forRoot(appRoutes),
+            // used for ngModel and eventbinding or two way binding 
+            forms_1.FormsModule
         ],
         providers: [
             {
@@ -47,11 +56,15 @@ AppModule = __decorate([
         declarations: [
             app_component_1.default,
             navigationBar_component_1.default,
-            showHide_component_1.default,
-            wadup_component_1.default,
+            parent_component_1.default,
+            child_component_1.default,
             interpolation_component_1.default,
             propertyBinding_component_1.default,
-            eventBinding_component_1.default
+            eventBinding_component_1.default,
+            twoWayBinding_component_1.default,
+            pipes_component_1.default,
+            customPipes_component_1.default,
+            customFilter_pipe_1.default
         ],
         // our bootstrap is AppComponent
         bootstrap: [app_component_1.default]

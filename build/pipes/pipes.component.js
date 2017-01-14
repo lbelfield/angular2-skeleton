@@ -13,13 +13,13 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
     }return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var WadupComponent = function WadupComponent() {
-    _classCallCheck(this, WadupComponent);
+var PipesComponent = function PipesComponent() {
+    _classCallCheck(this, PipesComponent);
 };
-WadupComponent = __decorate([core_1.Component({
-    selector: "my-wadup",
-    templateUrl: "../../app/wadup/wadup.html"
-})], WadupComponent);
+PipesComponent = __decorate([core_1.Component({
+    selector: "my-pipes",
+    templateUrl: "../../app/pipes/pipes.html"
+})], PipesComponent);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = WadupComponent;
-//# sourceMappingURL=wadup.component.js.map
+exports.default = PipesComponent;
+//# sourceMappingURL=pipes.component.js.map

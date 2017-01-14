@@ -6,26 +6,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 const core_1 = require("@angular/core");
-let ShowHideComponent = class ShowHideComponent {
-    constructor() {
-        this.childVisible = true;
-        this.childSavingIndicator = "start";
-    }
-    showChild() {
-        this.childVisible = true;
-        this.childSavingIndicator = "hello";
-    }
-    hideChild() {
-        this.childVisible = false;
-        this.childSavingIndicator = "world";
-    }
+let TwoWayBindingComponent = class TwoWayBindingComponent {
 };
-ShowHideComponent = __decorate([
+TwoWayBindingComponent = __decorate([
     core_1.Component({
-        selector: "my-showHide",
-        templateUrl: "../../app/showHide/showHide.html"
+        selector: "my-two-way-binding",
+        templateUrl: "../../app/twoWayBinding/twoWayBinding.html"
     })
-], ShowHideComponent);
+], TwoWayBindingComponent);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ShowHideComponent;
-//# sourceMappingURL=showHide.component.js.map
+exports.default = TwoWayBindingComponent;
+//# sourceMappingURL=twoWayBinding.component.js.map

@@ -14,19 +14,24 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 };
 // necessary imports
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
 // bespoke components
 var app_component_1 = require("./app.component");
 var navigationBar_component_1 = require("./navigationBar/navigationBar.component");
-var showHide_component_1 = require("./showHide/showHide.component");
-var wadup_component_1 = require("./wadup/wadup.component");
+var parent_component_1 = require("./showHide/parent.component");
+var child_component_1 = require("./showHide/child.component");
 var interpolation_component_1 = require("./interpolation/interpolation.component");
 var propertyBinding_component_1 = require("./propertyBinding/propertyBinding.component");
 var eventBinding_component_1 = require("./eventBinding/eventBinding.component");
+var twoWayBinding_component_1 = require("./twoWayBinding/twoWayBinding.component");
+var pipes_component_1 = require("./pipes/pipes.component");
+var customPipes_component_1 = require("./customPipes/customPipes.component");
+var customFilter_pipe_1 = require("./customPipes/customFilter.pipe");
 // routing configuration
-var appRoutes = [{ path: "showHide", component: showHide_component_1.default }, { path: "wadup", component: wadup_component_1.default }, { path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
+var appRoutes = [{ path: "showHide", component: parent_component_1.default }, { path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
 var AppModule = function AppModule() {
     _classCallCheck(this, AppModule);
 };
@@ -36,13 +41,15 @@ AppModule = __decorate([core_1.NgModule({
     // 
     platform_browser_1.BrowserModule,
     // used for routing
-    router_1.RouterModule.forRoot(appRoutes)],
+    router_1.RouterModule.forRoot(appRoutes),
+    // used for ngModel and eventbinding or two way binding 
+    forms_1.FormsModule],
     providers: [{
         provide: common_1.LocationStrategy,
         useClass: common_1.HashLocationStrategy
     }],
     // need to add every component to our declarations
-    declarations: [app_component_1.default, navigationBar_component_1.default, showHide_component_1.default, wadup_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default],
+    declarations: [app_component_1.default, navigationBar_component_1.default, parent_component_1.default, child_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, customFilter_pipe_1.default],
     // our bootstrap is AppComponent
     bootstrap: [app_component_1.default]
 })], AppModule);

@@ -15,15 +15,15 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
     }return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var ShowHideComponent = function () {
-    function ShowHideComponent() {
-        _classCallCheck(this, ShowHideComponent);
+var ParentComponent = function () {
+    function ParentComponent() {
+        _classCallCheck(this, ParentComponent);
 
         this.childVisible = true;
         this.childSavingIndicator = "start";
     }
 
-    _createClass(ShowHideComponent, [{
+    _createClass(ParentComponent, [{
         key: "showChild",
         value: function showChild() {
             this.childVisible = true;
@@ -37,12 +37,12 @@ var ShowHideComponent = function () {
         }
     }]);
 
-    return ShowHideComponent;
+    return ParentComponent;
 }();
-ShowHideComponent = __decorate([core_1.Component({
-    selector: "my-showHide",
-    templateUrl: "../../app/showHide/showHide.html"
-})], ShowHideComponent);
+ParentComponent = __decorate([core_1.Component({
+    selector: "parent-component",
+    templateUrl: "../../app/showHide/parent.html"
+})], ParentComponent);
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ShowHideComponent;
-//# sourceMappingURL=showHide.component.js.map
+exports.default = ParentComponent;
+//# sourceMappingURL=parent.component.js.map
