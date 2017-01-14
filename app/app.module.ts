@@ -1,15 +1,16 @@
-// necessary imports
+// Angular Modules and Services
 import { NgModule } from "@angular/core";
 import { FormsModule }   from "@angular/forms"; 
 import { BrowserModule } from "@angular/platform-browser"; 
 import { RouterModule, Routes }   from '@angular/router';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 
-// bespoke components
+// bespoke Modules
+import ShowHideModule from "./showHide/showHide.module";
+
+// bespoke Components
 import AppComponent from "./app.component"; 
 import NavigationBarComponent from "./navigationBar/navigationBar.component";
-import ParentComponent from "./showHide/parent.component";
-import ChildComponent from "./showHide/child.component";
 import InterpolationComponent from "./interpolation/interpolation.component";
 import PropertyBindingComponent from "./propertyBinding/propertyBinding.component";
 import EventBindingComponent from "./eventBinding/eventBinding.component";
@@ -21,7 +22,6 @@ import ProductFilterCustomPipe from "./customPipes/customFilter.pipe";
 
 // routing configuration
 const appRoutes: Routes = [
-        {path: "showHide", component: ParentComponent},
         {path: "interpolation", component: InterpolationComponent},
         {path: "propertyBinding", component: PropertyBindingComponent},
         {path: "eventBinding", component: EventBindingComponent},
@@ -32,31 +32,33 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({ 
-  // Imports are angular modules 
+  // Used For Modules (both Angular and bespoke)
   imports: [ 
 
-    // 
+    // used for ngIf, ngFor etc
     BrowserModule, 
 
     // used for routing
     RouterModule.forRoot(appRoutes),
 
     // used for ngModel and eventbinding or two way binding 
-    FormsModule
+    FormsModule,
+
+    // bespoke module with ParentComponent and ChildComponent
+    ShowHideModule
     ], 
 
+    // Used For Services (both Angular and bespoke)
   providers: [
     {
       provide: LocationStrategy, 
       useClass : HashLocationStrategy 
     }],
 
-  // need to add every component to our declarations
-  declarations: [ 
+  // Used For Components (both Angular and bespoke)
+    declarations: [ 
     AppComponent, 
     NavigationBarComponent, 
-    ParentComponent,
-    ChildComponent, 
     InterpolationComponent,
     PropertyBindingComponent,
     EventBindingComponent,
@@ -70,4 +72,5 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent] 
 })
 
-export default class AppModule{}; 
+export default class AppModule{
+}; 

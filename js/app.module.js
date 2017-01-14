@@ -5,17 +5,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-// necessary imports
+// Angular Modules and Services
 const core_1 = require("@angular/core");
 const forms_1 = require("@angular/forms");
 const platform_browser_1 = require("@angular/platform-browser");
 const router_1 = require('@angular/router');
 const common_1 = require('@angular/common');
-// bespoke components
+// bespoke Modules
+const showHide_module_1 = require("./showHide/showHide.module");
+// bespoke Components
 const app_component_1 = require("./app.component");
 const navigationBar_component_1 = require("./navigationBar/navigationBar.component");
-const parent_component_1 = require("./showHide/parent.component");
-const child_component_1 = require("./showHide/child.component");
 const interpolation_component_1 = require("./interpolation/interpolation.component");
 const propertyBinding_component_1 = require("./propertyBinding/propertyBinding.component");
 const eventBinding_component_1 = require("./eventBinding/eventBinding.component");
@@ -25,7 +25,6 @@ const customPipes_component_1 = require("./customPipes/customPipes.component");
 const customFilter_pipe_1 = require("./customPipes/customFilter.pipe");
 // routing configuration
 const appRoutes = [
-    { path: "showHide", component: parent_component_1.default },
     { path: "interpolation", component: interpolation_component_1.default },
     { path: "propertyBinding", component: propertyBinding_component_1.default },
     { path: "eventBinding", component: eventBinding_component_1.default },
@@ -38,26 +37,27 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     core_1.NgModule({
-        // Imports are angular modules 
+        // Used For Modules (both Angular and bespoke)
         imports: [
-            // 
+            // used for ngIf, ngFor etc
             platform_browser_1.BrowserModule,
             // used for routing
             router_1.RouterModule.forRoot(appRoutes),
             // used for ngModel and eventbinding or two way binding 
-            forms_1.FormsModule
+            forms_1.FormsModule,
+            // bespoke module with ParentComponent and ChildComponent
+            showHide_module_1.default
         ],
+        // Used For Services (both Angular and bespoke)
         providers: [
             {
                 provide: common_1.LocationStrategy,
                 useClass: common_1.HashLocationStrategy
             }],
-        // need to add every component to our declarations
+        // Used For Components (both Angular and bespoke)
         declarations: [
             app_component_1.default,
             navigationBar_component_1.default,
-            parent_component_1.default,
-            child_component_1.default,
             interpolation_component_1.default,
             propertyBinding_component_1.default,
             eventBinding_component_1.default,

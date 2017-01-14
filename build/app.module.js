@@ -12,17 +12,17 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
         if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     }return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-// necessary imports
+// Angular Modules and Services
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
-// bespoke components
+// bespoke Modules
+var showHide_module_1 = require("./showHide/showHide.module");
+// bespoke Components
 var app_component_1 = require("./app.component");
 var navigationBar_component_1 = require("./navigationBar/navigationBar.component");
-var parent_component_1 = require("./showHide/parent.component");
-var child_component_1 = require("./showHide/child.component");
 var interpolation_component_1 = require("./interpolation/interpolation.component");
 var propertyBinding_component_1 = require("./propertyBinding/propertyBinding.component");
 var eventBinding_component_1 = require("./eventBinding/eventBinding.component");
@@ -31,25 +31,28 @@ var pipes_component_1 = require("./pipes/pipes.component");
 var customPipes_component_1 = require("./customPipes/customPipes.component");
 var customFilter_pipe_1 = require("./customPipes/customFilter.pipe");
 // routing configuration
-var appRoutes = [{ path: "showHide", component: parent_component_1.default }, { path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
+var appRoutes = [{ path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
 var AppModule = function AppModule() {
     _classCallCheck(this, AppModule);
 };
 AppModule = __decorate([core_1.NgModule({
-    // Imports are angular modules 
+    // Used For Modules (both Angular and bespoke)
     imports: [
-    // 
+    // used for ngIf, ngFor etc
     platform_browser_1.BrowserModule,
     // used for routing
     router_1.RouterModule.forRoot(appRoutes),
     // used for ngModel and eventbinding or two way binding 
-    forms_1.FormsModule],
+    forms_1.FormsModule,
+    // bespoke module with ParentComponent and ChildComponent
+    showHide_module_1.default],
+    // Used For Services (both Angular and bespoke)
     providers: [{
         provide: common_1.LocationStrategy,
         useClass: common_1.HashLocationStrategy
     }],
-    // need to add every component to our declarations
-    declarations: [app_component_1.default, navigationBar_component_1.default, parent_component_1.default, child_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, customFilter_pipe_1.default],
+    // Used For Components (both Angular and bespoke)
+    declarations: [app_component_1.default, navigationBar_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, customFilter_pipe_1.default],
     // our bootstrap is AppComponent
     bootstrap: [app_component_1.default]
 })], AppModule);

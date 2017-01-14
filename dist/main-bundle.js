@@ -50693,44 +50693,47 @@
 	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
-	// necessary imports
+	// Angular Modules and Services
 	var core_1 = __webpack_require__(3);
 	var forms_1 = __webpack_require__(24);
 	var platform_browser_1 = __webpack_require__(21);
 	var router_1 = __webpack_require__(28);
 	var common_1 = __webpack_require__(22);
-	// bespoke components
-	var app_component_1 = __webpack_require__(58);
-	var navigationBar_component_1 = __webpack_require__(59);
-	var parent_component_1 = __webpack_require__(60);
-	var child_component_1 = __webpack_require__(61);
-	var interpolation_component_1 = __webpack_require__(62);
-	var propertyBinding_component_1 = __webpack_require__(63);
-	var eventBinding_component_1 = __webpack_require__(64);
-	var twoWayBinding_component_1 = __webpack_require__(65);
-	var pipes_component_1 = __webpack_require__(66);
-	var customPipes_component_1 = __webpack_require__(67);
-	var customFilter_pipe_1 = __webpack_require__(68);
+	// bespoke Modules
+	var showHide_module_1 = __webpack_require__(58);
+	// bespoke Components
+	var app_component_1 = __webpack_require__(61);
+	var navigationBar_component_1 = __webpack_require__(62);
+	var interpolation_component_1 = __webpack_require__(63);
+	var propertyBinding_component_1 = __webpack_require__(64);
+	var eventBinding_component_1 = __webpack_require__(65);
+	var twoWayBinding_component_1 = __webpack_require__(66);
+	var pipes_component_1 = __webpack_require__(67);
+	var customPipes_component_1 = __webpack_require__(68);
+	var customFilter_pipe_1 = __webpack_require__(69);
 	// routing configuration
-	var appRoutes = [{ path: "showHide", component: parent_component_1.default }, { path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
+	var appRoutes = [{ path: "interpolation", component: interpolation_component_1.default }, { path: "propertyBinding", component: propertyBinding_component_1.default }, { path: "eventBinding", component: eventBinding_component_1.default }, { path: "twoWayBinding", component: twoWayBinding_component_1.default }, { path: "pipes", component: pipes_component_1.default }, { path: "customPipes", component: customPipes_component_1.default }, { path: '', redirectTo: '/showHide', pathMatch: 'full' }];
 	var AppModule = function AppModule() {
 	    _classCallCheck(this, AppModule);
 	};
 	AppModule = __decorate([core_1.NgModule({
-	    // Imports are angular modules 
+	    // Used For Modules (both Angular and bespoke)
 	    imports: [
-	    // 
+	    // used for ngIf, ngFor etc
 	    platform_browser_1.BrowserModule,
 	    // used for routing
 	    router_1.RouterModule.forRoot(appRoutes),
 	    // used for ngModel and eventbinding or two way binding 
-	    forms_1.FormsModule],
+	    forms_1.FormsModule,
+	    // bespoke module with ParentComponent and ChildComponent
+	    showHide_module_1.default],
+	    // Used For Services (both Angular and bespoke)
 	    providers: [{
 	        provide: common_1.LocationStrategy,
 	        useClass: common_1.HashLocationStrategy
 	    }],
-	    // need to add every component to our declarations
-	    declarations: [app_component_1.default, navigationBar_component_1.default, parent_component_1.default, child_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, customFilter_pipe_1.default],
+	    // Used For Components (both Angular and bespoke)
+	    declarations: [app_component_1.default, navigationBar_component_1.default, interpolation_component_1.default, propertyBinding_component_1.default, eventBinding_component_1.default, twoWayBinding_component_1.default, pipes_component_1.default, customPipes_component_1.default, customFilter_pipe_1.default],
 	    // our bootstrap is AppComponent
 	    bootstrap: [app_component_1.default]
 	})], AppModule);
@@ -64518,57 +64521,28 @@
 	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
-	// Import
-	// importing Component from core
 	var core_1 = __webpack_require__(3);
-	// Decorator
-	var AppComponent = function AppComponent() {
-	    _classCallCheck(this, AppComponent);
+	var platform_browser_1 = __webpack_require__(21);
+	var router_1 = __webpack_require__(28);
+	//import { LocationStrategy, HashLocationStrategy} from '@angular/common';
+	var parent_component_1 = __webpack_require__(59);
+	var child_component_1 = __webpack_require__(60);
+	var appRoutes = [{ path: "showHide", component: parent_component_1.default }];
+	var ShowHideModule = function ShowHideModule() {
+	    _classCallCheck(this, ShowHideModule);
 	};
-	AppComponent = __decorate([core_1.Component({
-	    // the element defined in the index.html
-	    selector: "my-app",
-	    // Given this configuration, when the browser URL for this application becomes /showHide, 
-	    // the router matches that URL to the route path /showHide 
-	    // and displays the ShowHideComponent after a RouterOutlet that you've placed in the host view's HTML.
-	    template: "\n    <navigation-bar></navigation-bar>\n    <router-outlet></router-outlet>"
-	})], AppComponent);
+	ShowHideModule = __decorate([core_1.NgModule({
+	    imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes)],
+	    //providers: [{provide: LocationStrategy, useClass : HashLocationStrategy}],
+	    declarations: [parent_component_1.default, child_component_1.default]
+	})], ShowHideModule);
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = AppComponent;
-	//# sourceMappingURL=app.component.js.map
+	exports.default = ShowHideModule;
+	;
+	//# sourceMappingURL=showHide.module.js.map
 
 /***/ },
 /* 59 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    var c = arguments.length,
-	        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-	        d;
-	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var core_1 = __webpack_require__(3);
-	var NavigationBarComponent = function NavigationBarComponent() {
-	    _classCallCheck(this, NavigationBarComponent);
-	};
-	NavigationBarComponent = __decorate([core_1.Component({
-	    selector: "navigation-bar",
-	    templateUrl: "../../app/navigationBar/navigationBar.html"
-	})], NavigationBarComponent);
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = NavigationBarComponent;
-	//# sourceMappingURL=navigationBar.component.js.map
-
-/***/ },
-/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64621,7 +64595,7 @@
 	//# sourceMappingURL=parent.component.js.map
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64677,7 +64651,74 @@
 	//# sourceMappingURL=child.component.js.map
 
 /***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    var c = arguments.length,
+	        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+	        d;
+	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	// Import
+	// importing Component from core
+	var core_1 = __webpack_require__(3);
+	// Decorator
+	var AppComponent = function AppComponent() {
+	    _classCallCheck(this, AppComponent);
+	};
+	AppComponent = __decorate([core_1.Component({
+	    // the element defined in the index.html
+	    selector: "my-app",
+	    // Given this configuration, when the browser URL for this application becomes /showHide, 
+	    // the router matches that URL to the route path /showHide 
+	    // and displays the ShowHideComponent after a RouterOutlet that you've placed in the host view's HTML.
+	    template: "\n    <navigation-bar></navigation-bar>\n    <router-outlet></router-outlet>"
+	})], AppComponent);
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = AppComponent;
+	//# sourceMappingURL=app.component.js.map
+
+/***/ },
 /* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    var c = arguments.length,
+	        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+	        d;
+	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var core_1 = __webpack_require__(3);
+	var NavigationBarComponent = function NavigationBarComponent() {
+	    _classCallCheck(this, NavigationBarComponent);
+	};
+	NavigationBarComponent = __decorate([core_1.Component({
+	    selector: "navigation-bar",
+	    templateUrl: "../../app/navigationBar/navigationBar.html"
+	})], NavigationBarComponent);
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = NavigationBarComponent;
+	//# sourceMappingURL=navigationBar.component.js.map
+
+/***/ },
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64709,7 +64750,7 @@
 	//# sourceMappingURL=interpolation.component.js.map
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64752,7 +64793,7 @@
 	//# sourceMappingURL=propertyBinding.component.js.map
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64797,7 +64838,7 @@
 	//# sourceMappingURL=eventBinding.component.js.map
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64827,7 +64868,7 @@
 	//# sourceMappingURL=twoWayBinding.component.js.map
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64857,7 +64898,7 @@
 	//# sourceMappingURL=pipes.component.js.map
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64905,7 +64946,7 @@
 	//# sourceMappingURL=customPipes.component.js.map
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
