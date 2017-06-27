@@ -69,10 +69,7 @@ const appRoutes: Routes = [
     }],
 
   // Used For Components (and Custom Pipes) (both Angular and bespoke)
-    declarations: [ 
-    AppComponent, 
-    NavigationBarComponent
-    ],
+    declarations: [AppComponent, NavigationBarComponent],
 
   // our bootstrap is AppComponent
   bootstrap: [AppComponent] 
