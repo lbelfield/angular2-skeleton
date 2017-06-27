@@ -1,4 +1,4 @@
-/*
+
 ******************************************************************************************************************************
 SCRIPTS IN PACKAGE.JSON
 ******************************************************************************************************************************
@@ -112,11 +112,6 @@ package.json - scripts:
         <base href="/"> is used by the Angular RouterModule and RouterModule
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> is needed for Twitter Bootstrap
         This script uses the http-server (installed by npm) and specifies the url is localhost:3000
-
-
-To make the app run
-    npm run build
-    npm run start
 
 
 
@@ -275,7 +270,26 @@ git push -u origin master
 
 ******************************************************************************************************************************
 
+
+
+******************************************************************************************************************************
+SET UP
+******************************************************************************************************************************
+
+To set me up:
+
+git -c http.sslVerify=false clone https://github.com/lbelfield/angular2-skeleton.git
+
+npm install
+(may need to delete rimraf from the package.json on first attempt?)
+
+
+To make the app run
+    npm run build
+    npm run start
+    localhost:3000
+
+******************************************************************************************************************************
+
 todo - less
 todo - component-based architecture example, custom pipes
-
-*/

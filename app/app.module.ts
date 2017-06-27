@@ -7,17 +7,24 @@ import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 // bespoke Modules
 import ShowHideModule from "./showHide/showHide.module";
+import TwoWayBindingModule from "./twoWayBinding/twoWayBinding.module";
+import EventBindingModule from "./eventBinding/eventBinding.module";
+import PropertyBindingModule from "./propertyBinding/propertyBinding.module";
+import PipesModule from "./pipes/pipes.module";
+import CustomPipesModule from "./customPipes/customPipes.module"
+import InterpolationModule from "./interpolation/interpolation.module";
 
 // bespoke Components
 import AppComponent from "./app.component"; 
 import NavigationBarComponent from "./navigationBar/navigationBar.component";
+
 import InterpolationComponent from "./interpolation/interpolation.component";
 import PropertyBindingComponent from "./propertyBinding/propertyBinding.component";
 import EventBindingComponent from "./eventBinding/eventBinding.component";
 import TwoWayBindingComponent from "./twoWayBinding/twoWayBinding.component";
 import PipesComponent from "./pipes/pipes.component";
 import CustomPipesComponent from "./customPipes/customPipes.component"
-import ProductFilterCustomPipe from "./customPipes/productFilterCustomPipe.pipe";
+
 
 
 // routing configuration
@@ -45,7 +52,13 @@ const appRoutes: Routes = [
     FormsModule,
 
     // bespoke module with ParentComponent and ChildComponent
-    ShowHideModule
+    ShowHideModule,
+    TwoWayBindingModule,
+    EventBindingModule,
+    PropertyBindingModule,
+    PipesModule,
+    CustomPipesModule,
+    InterpolationModule
     ], 
 
     // Used For Services (both Angular and bespoke)
@@ -58,14 +71,7 @@ const appRoutes: Routes = [
   // Used For Components (and Custom Pipes) (both Angular and bespoke)
     declarations: [ 
     AppComponent, 
-    NavigationBarComponent, 
-    InterpolationComponent,
-    PropertyBindingComponent,
-    EventBindingComponent,
-    TwoWayBindingComponent,
-    PipesComponent, 
-    CustomPipesComponent,
-    ProductFilterCustomPipe
+    NavigationBarComponent
     ],
 
   // our bootstrap is AppComponent
