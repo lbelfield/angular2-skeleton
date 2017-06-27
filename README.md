@@ -1,3 +1,12 @@
+My Angular 2 playground - nothing fancy, just basics.
+Built from scratch to understand npm, bower, build process. Commands below.
+Interpolation, bindings, routing and navigation of the SPA, pipes and custom, input and output decorators, modules for encapsulation, bootstrapping.
+More importantly (verbosely done on purpose) - set up for webpack (with separated vendor and main), building (with package.json scripts), babel, minify and uglify and tsconfig setup.
+Bundles in dist directory.
+Babel in build directory.
+JS code in js directory.
+No CSS/LESS or Unit Tests (both in angular4 project)
+
 
 ******************************************************************************************************************************
 SCRIPTS IN PACKAGE.JSON
@@ -292,4 +301,3 @@ To make the app run
 ******************************************************************************************************************************
 
 todo - less
-todo - component-based architecture example, custom pipes
