@@ -14,61 +14,41 @@ import PipesModule from "./pipes/pipes.module";
 import CustomPipesModule from "./customPipes/customPipes.module"
 import InterpolationModule from "./interpolation/interpolation.module";
 
+// bespoke Routing Module
+import AppRoutesModule from "./app.routes";
+
 // bespoke Components
 import AppComponent from "./app.component"; 
 import NavigationBarComponent from "./navigationBar/navigationBar.component";
-
-import InterpolationComponent from "./interpolation/interpolation.component";
-import PropertyBindingComponent from "./propertyBinding/propertyBinding.component";
-import EventBindingComponent from "./eventBinding/eventBinding.component";
-import TwoWayBindingComponent from "./twoWayBinding/twoWayBinding.component";
-import PipesComponent from "./pipes/pipes.component";
-import CustomPipesComponent from "./customPipes/customPipes.component"
-
-
-
-// routing configuration
-const appRoutes: Routes = [
-        {path: "interpolation", component: InterpolationComponent},
-        {path: "propertyBinding", component: PropertyBindingComponent},
-        {path: "eventBinding", component: EventBindingComponent},
-        {path: "twoWayBinding", component: TwoWayBindingComponent},
-        {path: "pipes", component: PipesComponent}, 
-        {path: "customPipes", component: CustomPipesComponent},       
-        {path: "", redirectTo: "/showHide", pathMatch: "full"}
-];
 
 @NgModule({ 
   // Used For Modules (both Angular and bespoke)
   imports: [ 
 
-    // used for ngIf, ngFor etc
+    // Angular - used for ngIf, ngFor etc
     BrowserModule, 
 
-    // used for routing
-    RouterModule.forRoot(appRoutes),
+    // Angular - used for routing
+    RouterModule,
 
-    // used for ngModel and eventbinding or two way binding 
+    // Angular - used for ngModel and eventbinding or two way binding 
     FormsModule,
 
-    // bespoke module with ParentComponent and ChildComponent
+    // bespoke module
     ShowHideModule,
     TwoWayBindingModule,
     EventBindingModule,
     PropertyBindingModule,
     PipesModule,
     CustomPipesModule,
-    InterpolationModule
+    InterpolationModule,
+
+    // bespoke routing module
+    AppRoutesModule
     ], 
 
-    // Used For Services (both Angular and bespoke)
-  providers: [
-    {
-      provide: LocationStrategy, 
-      useClass : HashLocationStrategy 
-    }],
-
-  // Used For Components (and Custom Pipes) (both Angular and bespoke)
+    // Used For Components (and Custom Pipes) (both Angular and bespoke).
+    // As we have already imported the Modules, we don't need to reimport all the Components'
     declarations: [AppComponent, NavigationBarComponent],
 
   // our bootstrap is AppComponent
