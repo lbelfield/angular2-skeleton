@@ -258,26 +258,26 @@ SET UP GIT FOR FIRST TIME:
 2 Go to github and sign in - create a new repository.
 
 Run these commands:
-    git init
-    git status (notice everything in red)
-    git add --all
-    git status (notice everything in green)
-    git commit -m "description"
-    git status (notice now says nothing to commit - your code is safe)
+    `git init`
+    `git status` (notice everything in red)
+    `git add --all`
+    `git status (notice everything in green)`
+    `git commit -m "description"`
+    `git status` (notice now says nothing to commit - your code is safe)
     (the next step depends on the generated url)
-    git remote add origin https://github.com/...
-    git push -u origin master
+    `git remote add origin https://github.com/...`
+    `git push -u origin master`
 
 
 PUSHING CHANGES:
 
 change file
-git status (to see what is outstanding - notice it is red)
-git add --all
-git status (notice it is green)
-git commit -m "description"
-git status (notice now says nothing to commit - your code is safe)
-git push -u origin master
+`git status` (to see what is outstanding - notice it is red)
+`git add --all`
+`git status` (notice it is green)
+`git commit -m "description"`
+`git status` (notice now says nothing to commit - your code is safe)
+`git push -u origin master`
 
 ******************************************************************************************************************************
 
@@ -289,15 +289,15 @@ git push -u origin master
 
 To set me up:
 
-git -c http.sslVerify=false clone https://github.com/lbelfield/angular2-skeleton.git
+`git -c http.sslVerify=false clone https://github.com/lbelfield/angular2-skeleton.git`
 
-npm install
+`npm install`
 (may need to delete rimraf from the package.json on first attempt?)
 
 
 To make the app run
-    npm run build
-    npm run start
+    `npm run build`
+    `npm run start`
     localhost:3000
 
 ******************************************************************************************************************************
